@@ -14,3 +14,20 @@ function likes(names) {
             return (names[0] + ', ' + names[1] + ' and ' + (names.length - 2) + ' others like this');
     }
 }
+
+// In this challenge I need to simulate fibonacci sequance, except I need to add last three numbers of the array and this should go on as much time as specified in the second argument of the function.
+
+function tribonacci(signature, n){
+    for(let i = 0; i < n; i++){
+        var sum = 0;
+
+        for(let k = 0; k < 3; k++){
+            sum += signature[k];
+        }
+        signature[signature.length] = sum;
+    }
+
+    console.log(signature);
+  }
+
+  tribonacci([1, 2, 3], 1);
