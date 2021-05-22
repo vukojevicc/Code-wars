@@ -46,3 +46,23 @@ function tribonacci(signature, n){
     }
 
 tribonacci([1, 2, 3], 5);
+
+// A Narcissistic Number is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
+
+function narcissistic(value) {
+    var numLength = value.toString().length;
+    var valueString = value.toString();
+    var newValue = 0;
+
+    for(let i = 0; i < numLength; i++){
+        newValue += Math.pow(valueString[i], numLength);
+    }      
+    if(newValue == value){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
+narcissistic(153);
