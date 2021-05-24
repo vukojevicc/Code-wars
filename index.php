@@ -33,7 +33,6 @@ function findMissing($list) {
             var_dump($missing_int);
         }
 
-        $difference_each = 0;
     }
 }
 
