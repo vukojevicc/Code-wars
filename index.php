@@ -30,7 +30,7 @@ function findMissing($list) {
         if($difference_main != $difference_each){
             $missing_int = $list[$i] + $difference_main;
 
-            var_dump($missing_int);
+            return $missing_int;
         }
 
     }
