@@ -87,3 +87,27 @@ function solution(str){
 }
 
 solution('test1fsdfgsfgdfgfdd');
+
+//Create a function taking a positive integer as its parameter and returning a string containing the Roman Numeral representation of that integer.
+
+var roman_numbers = {
+    1: 'I',
+    5: 'V',
+    10: 'X',
+    50: 'L',
+    100: 'C',
+    500: 'D',
+    1000: 'M'
+}
+
+
+function solution1(number){
+    var stringNumber = number.toString();
+    var Rnumber = '';
+
+    for(let i = stringNumber.length; i > 0; i--){
+        console.log(stringNumber[i - 1]);
+    }
+}
+
+solution1(3000);
