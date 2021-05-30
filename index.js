@@ -90,24 +90,87 @@ solution('test1fsdfgsfgdfgfdd');
 
 //Create a function taking a positive integer as its parameter and returning a string containing the Roman Numeral representation of that integer.
 
-var roman_numbers = {
-    1: 'I',
-    5: 'V',
-    10: 'X',
-    50: 'L',
-    100: 'C',
-    500: 'D',
-    1000: 'M'
-}
-
-
 function solution1(number){
-    var stringNumber = number.toString();
-    var Rnumber = '';
+    var number_str = number.toString();
+    var Rnumber;
+    var zero_counter = '';
+    var number_str_iteration = '';
 
-    for(let i = stringNumber.length; i > 0; i--){
-        console.log(stringNumber[i - 1]);
-    }
+        for(let i = number_str.length - 1; i >= 0; i--){
+
+            if(i == number_str.length - 1){
+
+                if(number_str[number_str.length - 1] < 5){
+
+                    if(number_str[number_str.length - 1] == 4){
+                        Rnumber = 'IV';
+                    }
+                    else{
+                        Rnumber = 'I'.repeat(number_str[number_str.length - 1]);        
+                    }
+                }
+                else if(number_str[number_str.length - 1] > 4 && number_str[number_str.length - 1] < 10){
+
+                    if(number_str[number_str.length - 1] == 9){
+                        Rnumber = 'IX';
+                    }
+                    else{
+                        Rnumber = 'V' + 'I'.repeat(number_str[number_str.length - 1] - 5);        
+                    }
+                }            
+            }
+            else if(i == number_str.length - 2){
+                number_str_iteration = number_str[number_str.length - 2] + zero_counter;
+                
+                if(number_str_iteration > 9 && number_str_iteration < 50){
+
+                    if(number_str_iteration == 40){
+                        Rnumber = 'XL' + Rnumber;
+                    }
+                    else{
+                        Rnumber = 'X'.repeat(number_str[number_str.length - 2]) + Rnumber;
+                    }
+                }
+                else if(number_str_iteration > 49 && number_str_iteration < 100){
+                    
+                    if(number_str_iteration == 90){
+                        Rnumber = 'XC' + Rnumber;
+                    }
+                    else{
+                        Rnumber = 'L' + 'X'.repeat(number_str[number_str.length - 2] - 5) + Rnumber;
+                    }
+                }
+            }
+            else if(i == number_str.length - 3){
+                number_str_iteration = number_str[number_str.length - 3] + zero_counter;
+
+                if(number_str_iteration > 99 && number_str_iteration < 500){
+
+                    if(number_str_iteration == 400){
+                        Rnumber = 'CD' + Rnumber;
+                    }
+                    else{
+                        Rnumber = 'C'.repeat(number_str[number_str.length - 3]) + Rnumber;
+                    }
+                }
+                else if(number_str_iteration > 499 && number_str_iteration < 1000){
+
+                    if(number_str_iteration == 900){
+                        Rnumber = 'CM' + Rnumber;
+                    }
+                    else{
+                        Rnumber = 'D' + 'C'.repeat(number_str[number_str.length - 3] - 5) + Rnumber;
+                    }
+                }
+            }
+            else{
+                Rnumber = 'M'.repeat(number_str[number_str.length - 4]) + Rnumber;
+            }
+
+            zero_counter += '0';
+        }
+
+    return Rnumber;
 }
 
-solution1(3000);
+solution1(1997);
