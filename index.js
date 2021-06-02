@@ -45,7 +45,7 @@ function tribonacci(signature, n) {
     }
 }
 
-tribonacci([1, 2, 3], 5);
+// tribonacci([1, 2, 3], 5);
 
 // A Narcissistic Number is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
 
@@ -65,7 +65,7 @@ function narcissistic(value) {
 
 }
 
-narcissistic(153);
+// narcissistic(153);
 
 // Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
 
@@ -86,7 +86,7 @@ function solution(str) {
     return arr;
 }
 
-solution('test1fsdfgsfgdfgfdd');
+// solution('test1fsdfgsfgdfgfdd');
 
 //Create a function taking a positive integer as its parameter and returning a string containing the Roman Numeral representation of that integer.
 
@@ -173,7 +173,7 @@ function solution1(number) {
     return Rnumber;
 }
 
-solution1(1997);
+// solution1(1997);
 
 // Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
 
@@ -187,7 +187,7 @@ function toCamelCase(str) {
     return str;
 }
 
-toCamelCase('The-stealth-Warrior');
+// toCamelCase('The-stealth-Warrior');
 
 // You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
 
@@ -204,11 +204,51 @@ function findOutlier(integers) {
     }
 
     if(arr_even.length >= 2){
-        console.log(arr_odd[0]);
+        return arr_odd[0];
     }else{
-        console.log(arr_even[0]);
+        return arr_even[0];
     }
 }
 
 // findOutlier([6, 8, 2, 44, 10, 13, 12]);
-findOutlier([1, 3, 7, 33, 10, 13, 17]);
+// findOutlier([1, 3, 7, 33, 10, 13, 17]);
+
+//  The new "Avengers" movie has just been released! There are a lot of people at the cinema box office standing in a huge line. Each of them has a single 100, 50 or 25 dollar bill. An "Avengers" ticket costs 25 dollars.
+// Vasya is currently working as a clerk. He wants to sell a ticket to every single person in this line.
+// Can Vasya sell a ticket to every person and give change if he initially has no money and sells the tickets strictly in the order people queue?
+// Return YES, if Vasya can sell a ticket to every person and give change with the bills he has at hand at that moment. Otherwise return NO.
+
+function tickets(peopleInLine){
+    var yes_no = 'YES';
+    var cash_register = {
+        25: 0,
+        50: 0,
+        100: 0
+    };
+    
+    peopleInLine.forEach((item) => {
+        if(item == 25){
+            cash_register[25] += 1;
+        }else if(item == 50){
+            cash_register[50] += 1;
+            cash_register[25] -= 1;
+        }else{
+            cash_register[100] += 1;
+            if(cash_register[25] > 2 && cash_register[50] < 1){
+                cash_register[25] -= 3;
+            }else{
+                cash_register[25] -= 1;
+                cash_register[50] -= 1;    
+            }
+        }
+
+        if(cash_register[25] < 0 || cash_register[50] < 0 || cash_register[100] < 0){
+            yes_no = 'NO';
+        }
+    })
+
+    console.log(yes_no);
+    console.log(cash_register)
+}
+
+tickets([25,50,25,100,25,25,25,100,25,25,50,100]);
