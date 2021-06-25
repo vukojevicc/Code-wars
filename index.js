@@ -252,3 +252,17 @@ function tickets(peopleInLine){
 }
 
 // tickets([25,50,25,100,25,25,25,100,25,25,50,100]);
+
+// Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+
+function pigIt(str){
+    let regEx = /[A-Za-z]/;
+    for(let i = 0; i < str.length; i++){
+
+        if(regEx.test(str[i])){
+            console.log(str[i]);
+        }
+    }
+}
+
+pigIt('veliki pozdrav !');
